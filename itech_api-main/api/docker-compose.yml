@@ -1,0 +1,57 @@
+version: '3.1'
+
+services:
+  db:
+    image: mariadb:10.6
+    restart: always
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d/
+      - ./db_data:/var/lib/mysql
+    env_file:
+      - db.env
+    environment:
+      - TZ=Europe/Berlin
+      - DEBIAN_FRONTEND=noninteractive
+
+  api:
+    image: registry.boapi.de/hs/itech-fastapi/api:latest
+    restart: always
+    build:
+      context: api
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    env_file:
+      - api.env
+      - web.env
+    environment:
+      - DB_DNS=mysql://user:password@db:3306/database
+      - TZ=Europe/Berlin
+      - DEBIAN_FRONTEND=noninteractive
+
+  auth:
+    image: registry.boapi.de/hs/itech-fastapi/auth-api:latest
+    restart: always
+    build:
+      context: auth
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    env_file:
+      - api.env
+    environment:
+      - DB_DNS=mysql://user:password@db:3306/auth
+      - TZ=Europe/Berlin
+      - DEBIAN_FRONTEND=noninteractiv
+
+  web:
+    image: jwilder/nginx-proxy
+    restart: always
+    depends_on:
+      - api
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./web/:/etc/nginx/certs
+    environment:
+      - TZ=Europe/Berlin
+      - DEBIAN_FRONTEND=noninteractive

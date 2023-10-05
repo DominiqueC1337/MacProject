@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  db:
+    ports:
+      - "3306:3306"
+
+  web:
+    ports:
+      - "443:443"
+      

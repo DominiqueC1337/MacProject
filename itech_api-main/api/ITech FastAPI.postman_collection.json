@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "c6566fff-da87-4458-b2fb-34303214a350",
+		"name": "ITech FastAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"tesla\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/login",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/authstatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/authstatus",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"authstatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/klasse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/klasse",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"klasse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/klasse/{klasse}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/klasse/1",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"klasse",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user/{username}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/user/tesla",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"user",
+						"tesla"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/greeting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": 1,\r\n    \"message\": \"Hello you\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/greeting",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"greeting"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiRnVuY3Rpb24gQVBJMDAxIiwiZXhwaXJlcyI6MTY1MTA1OTk4My43MTkzODY4fQ.fB61EgzLd5Kob-D3v2HjVwxl-HPIW523-6TDZZclW2I",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "https://127.0.0.1:8080"
+		}
+	]
+}

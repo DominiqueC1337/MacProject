@@ -1,0 +1,9 @@
+uvicorn
+fastapi
+pymysql
+mysqlclient
+sqlalchemy==1.4.32
+ldap3
+pyotp
+pyyaml
+qrcode[pil]

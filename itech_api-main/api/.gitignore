@@ -1,0 +1,13 @@
+# dev
+**/__pycache__
+.venv
+
+api.env
+db.env
+web.env
+docker-compose.override.yml
+
+db_data/**/*
+
+
+!.gitkeep
